@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Anamalala</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004085;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --success-color: #28a745;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #cccccc;
+        }
+        
+        main {
+            padding: 40px 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 1.5rem 0 1rem;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        .mission-box {
+            background-color: #e9f7fe;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .team-member {
+            display: flex;
+            margin: 30px 0;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .team-info {
+            padding: 20px;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .team-role {
+            font-size: 1rem;
+            color: var(--gray-color);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .team-member {
+                flex-direction: column;
+            }
+            
+            .team-photo {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">ANAMALALA</div>
+            <nav class="nav-links">
+                <a href="../Portal/portal.html">Início</a>
+                <a href="../legal/sobre-nos.html">Sobre Nós</a>
+                <a href="../auth/login.html">Entrar</a>
+                <a href="../auth/register.html">Criar Conta</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <h1>Sobre o Movimento Político Único (MPU)</h1>
+            
+            <div class="mission-box">
+                <h2>Nossa Missão</h2>
+                <p>O Movimento Político Único (MPU) é uma força política de direita liberal dedicada ao desenvolvimento de Moçambique através da promoção dos princípios da liberdade individual, Estado de direito, economia de mercado e descentralização administrativa.</p>
+            </div>
+            
+            <h2>Nossa História</h2>
+            <p>Fundado como uma resposta às necessidades políticas do povo moçambicano, o MPU nasceu da convicção de que Moçambique precisa de uma nova abordagem política para enfrentar os desafios do século XXI. Adoptando o grito de guerra "ANAMALALA", que simboliza o despertar e a mobilização popular, o movimento tem crescido rapidamente em todas as províncias do país.</p>
+            
+            <p>Desde o início, temos trabalhado para criar uma plataforma onde os cidadãos possam participar activamente na discussão política e na elaboração de propostas para o desenvolvimento de Moçambique. O portal Anamalala é uma extensão digital dessa missão, permitindo que moçambicanos de todas as regiões se envolvam no debate público.</p>
+            
+            <h2>Nossos Valores</h2>
+            <ul>
+                <li><strong>Liberdade:</strong> Acreditamos na liberdade individual como base para uma sociedade próspera.</li>
+                <li><strong>Desenvolvimento:</strong> Buscamos políticas que promovam o crescimento económico e a melhoria da qualidade de vida.</li>
+                <li><strong>Transparência:</strong> Defendemos a transparência na gestão pública e na acção política.</li>
+                <li><strong>Participação:</strong> Incentivamos a participação cívica e o engajamento político de todos os cidadãos.</li>
+                <li><strong>Inovação:</strong> Estamos comprometidos com soluções inovadoras para os desafios de Moçambique.</li>
+            </ul>
+            
+            <h2>Nossa Liderança</h2>
+            
+            <div class="team-member">
+                <img src="../assets/images/venancio.png" alt="Venâncio Mondlane" class="team-photo">
+                <div class="team-info">
+                    <div class="team-name">Venâncio Mondlane</div>
+                    <div class="team-role">Líder do Movimento</div>
+                    <p>Venâncio Mondlane tem dedicado sua carreira a lutar por um Moçambique mais justo e próspero. Com formação em administração pública e experiência internacional, Mondlane traz uma visão inovadora para a política moçambicana, focada no desenvolvimento económico e na descentralização do poder.</p>
+                    <p>Sob sua liderança, o MPU tem crescido como uma alternativa para os moçambicanos que acreditam num futuro melhor baseado nos princípios da liberdade e da responsabilidade.</p>
+                </div>
+            </div>
+            
+            <h2>O Portal Anamalala</h2>
+            <p>O Portal Anamalala é a plataforma digital do MPU, criada para facilitar o debate político, disseminar informações e mobilizar apoiadores em todo o país. A plataforma oferece:</p>
+            <ul>
+                <li>Um espaço de informações oficiais do movimento</li>
+                <li>Uma sala de debate onde todos os membros podem participar</li>
+                <li>Recursos para organização e mobilização política</li>
+                <li>Canais para sugestões e feedback dos usuários</li>
+            </ul>
+            
+            <p>Acreditamos que, através do diálogo e da participação, podemos construir um movimento forte que trará as mudanças necessárias para Moçambique.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anamalala - Movimento Político Único (MPU). Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="../legal/sobre-nos.html">Sobre Nós</a>
+                <a href="../legal/contacto.html">Contacto</a>
+                <a href="../legal/politica-privacidade.html">Política de Privacidade</a>
+                <a href="../legal/termos.html">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Script para tornar o menu responsivo (versão simplificada)
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.style.padding = '0.5rem 0';
+                } else {
+                    header.style.padding = '1rem 0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

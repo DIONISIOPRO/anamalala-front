@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - ANAMALALA</title>
+    <link rel="stylesheet" href="../style/auth/register.css"/>
+    <style>
+ 
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><span>M</span></div>
+            MPU
+        </a>
+    </header>
+    
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Criar Conta</h1>
+                <p>Junte-se ao ANAMALALA e faça parte da mudança</p>
+            </div>
+            
+            <form id="registerForm" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" class="form-input" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="province">Província</label>
+                    <select id="province" name="province" class="form-select" required>
+                        <option value="" disabled selected>Selecione sua província</option>
+                        <option value="Maputo Cidade">Maputo Cidade</option>
+                        <option value="Maputo Provincia">Maputo Província</option>
+                        <option value="Gaza">Gaza</option>
+                        <option value="Inhambane">Inhambane</option>
+                        <option value="Sofala">Sofala</option>
+                        <option value="Manica">Manica</option>
+                        <option value="Tete">Tete</option>
+                        <option value="Zambezia">Zambézia</option>
+                        <option value="Nampula">Nampula</option>
+                        <option value="Cabo Delgado">Cabo Delgado</option>
+                        <option value="Niassa">Niassa</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact">Número de Contacto</label>
+                    <input type="tel" id="contact" name="contact" class="form-input" required pattern="[0-9]+" placeholder="Ex: 84XXXXXXX">
+                    <div id="contactError" class="form-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Palavra-passe</label>
+                    <input type="password" id="password" name="password" class="form-input" required minlength="6">
+                    <div id="passwordError" class="form-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Palavra-passe</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-input" required>
+                    <div id="confirmPasswordError" class="form-error"></div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Criar Conta</button>
+                
+                <div class="form-footer">
+                    Já tem uma conta? <a href="login.html">Entrar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 ANAMALALA - Movimento Político Único | Todos os direitos reservados
+    </footer>
+    <script src="../scripts/auth/register.js">
+    </script>
+</body>
+</html>

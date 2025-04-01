@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAMALALA - Fórum de Debate</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../style/chat/chatroom.css">
+
+    <style>
+    
+    </style>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Overlay para dispositivos móveis quando a sidebar está visível -->
+        <div class="sidebar-overlay"></div>
+        
+        <!-- Botão para toggle da sidebar -->
+        <button id="sidebar-toggle" title="Mostrar Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h1 class="text-2xl font-bold">ANAMALALA</h1>
+                <span class="text-sm bg-red-600 px-2 py-1 rounded ml-2">MPU</span>
+            </div>
+
+            <div class="sidebar-menu">
+                <div>
+                    <!-- <div class="bg-grey-600 p-2 mr-3">
+                        <i class="fas fa-users text-white"></i>
+                    </div> -->
+                    <h2 class="text-xl font-bold text-white">3,427 membros</h2>
+                    <p class="text-sm text-white opacity-75">427 online Agora</p>
+                </div>
+                <a href="../Portal/portal.html" class="hover:bg-blue-700">Início</a>
+                <a href="#" class="active hover:bg-blue-700">Sala de Debate</a>
+                <!-- <a href="#" class="hover:bg-blue-700">Sugestões</a> -->
+                <div class="mb-12">
+                    <img 
+                        src="../assets/images/venancio.png" 
+                        alt="Venâncio Mondlane" 
+                        class="w-64 h-64 object-cover rounded-full mx-auto shadow-lg border-4 border-white"
+                    />
+                    <p class="mt-4 text-lg font-semibold">Venâncio Mondlane</p>
+                    <p class="text-sm">Líder do Movimento Político Único</p>
+                </div>
+
+            </div>
+            <div class="sidebar-footer">
+
+            </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div class="chat-header">
+                <div class="user-nav">
+                    <div class="user-profile">
+                        <span class="user-name" data-user="name">Usuário</span>
+                        <div class="dropdown-content">
+                            <a href="../auth/profile.html">Meu Perfil</a>
+                            <a class="btnLogout" href="">Sair</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <span id="connection-status" class="status-indicator">Conectando...</span>
+            <span id="notification-count" class="notification-badge hidden">0</span>
+
+            <div id="posts-container" class="posts-container">
+                <div id="loading-posts" class="flex justify-center items-center h-full">
+                    <span class="loading-spinner"></span> Carregando publicações...
+                </div>
+            </div>
+
+            <div class="post-form">
+                <textarea id="post-input" class="post-input"
+                    placeholder="O que você está pensando? Compartilhe suas ideias com o movimento..."
+                    rows="1"></textarea>
+                <button id="submit-post" class="button">Publicar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Templates from original document -->
+    <template id="post-template">
+        <div class="post" data-post-id="">
+            <div class="post-header">
+                <span class="post-author"></span>
+                <span class="post-time"></span>
+            </div>
+            <div class="post-content"></div>
+            <div class="post-actions">
+                <div class="post-action like-action">
+                    <i class="fas fa-thumbs-up"></i> <span class="like-count">0</span> Curtir
+                </div>
+                <div class="post-action comment-action">
+                    <i class="fas fa-comment"></i> <span class="comment-count">0</span> Comentar
+                </div>
+                <!-- <div class="post-action share-action">
+                    <i class="fas fa-share"></i> Compartilhar
+                </div> -->
+            </div>
+            <div class="comments-container">
+                <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Escreva um comentário..."></textarea>
+                    <button class="button comment-submit">Comentar</button>
+                    <button class="button comment-cancel">Cancel</button>
+
+                    
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="comment-template">
+        <div class="comment" data-comment-id="">
+            <div class="comment-header">
+                <span class="comment-author"></span>
+                <span class="comment-time"></span>
+            </div>
+            <div class="comment-content"></div>
+            <div class="comment-actions">
+                <!-- <div class="comment-action like-comment">
+                    <i class="fas fa-thumbs-up"></i> <span class="comment-like-count">0</span> Curtir
+                </div> -->
+                <!-- <div class="comment-action reply-comment">
+                    <i class="fas fa-reply"></i> Responder
+                </div> -->
+            </div>
+            <div class="comment-replies">
+                <!-- Respostas aos comentários serão carregadas aqui -->
+            </div>
+            <div class="comment-form reply-form hidden">
+                <textarea class="comment-input reply-input" placeholder="Escreva uma resposta..."></textarea>
+                <button class="button comment-submit reply-submit">Responder</button>
+            </div>
+        </div>
+    </template>
+
+    <script>
+      
+    </script>
+    <script src="../scripts/chat/chatroom.js"></script>
+</body>
+
+</html>

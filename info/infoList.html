@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamalala - Sala de Informações</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-blue-900 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-2xl font-bold">ANAMALALA</h1>
+                <span class="text-sm bg-red-600 px-2 py-1 rounded">MPU</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#" class="hover:text-blue-200">Início</a>
+                <a href="#" class="hover:text-blue-200 font-bold">Informações</a>
+                <a href="#" class="hover:text-blue-200">Sala de Debate</a>
+                <a href="#" class="hover:text-blue-200">Sugestões</a>
+                <div class="relative">
+                    <button class="flex items-center space-x-1 hover:text-blue-200">
+                        <img src="/api/placeholder/40/40" class="w-8 h-8 rounded-full" alt="Usuário">
+                        <span>João</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="mb-6 flex justify-between items-center">
+            <h2 class="text-2xl font-bold text-gray-800">Sala de Informações</h2>
+            <div class="relative">
+                <input type="text" placeholder="Pesquisar informações..." class="pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 w-64">
+                <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+            </div>
+        </div>
+
+        <!-- Information Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <img src="/api/placeholder/400/200" alt="Notícia" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-blue-600 font-semibold">Comunicado Oficial</span>
+                        <span class="text-xs text-gray-500">01/03/2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Nova Proposta para Desenvolvimento Económico</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">O MPU apresenta hoje sua nova proposta para impulsionar o desenvolvimento económico de Moçambique, focando em investimentos para infraestrutura...</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Ler mais
+                        <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <img src="/api/placeholder/400/200" alt="Evento" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-green-600 font-semibold">Evento</span>
+                        <span class="text-xs text-gray-500">27/02/2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Encontro Nacional de Líderes Regionais</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">No próximo fim de semana acontecerá o Encontro Nacional de Líderes Regionais do MPU em Maputo, com a presença de Venâncio Mondlane...</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Ler mais
+                        <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <img src="/api/placeholder/400/200" alt="Análise" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-purple-600 font-semibold">Análise</span>
+                        <span class="text-xs text-gray-500">25/02/2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Impacto das Novas Políticas na Agricultura</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Uma análise detalhada sobre como as novas políticas propostas pelo MPU podem transformar o setor agrícola de Moçambique nos próximos anos...</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Ler mais
+                        <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <img src="/api/placeholder/400/200" alt="Manifesto" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-red-600 font-semibold">Manifesto</span>
+                        <span class="text-xs text-gray-500">20/02/2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Manifesto pela Transparência e Governança</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">O MPU divulga seu manifesto pela transparência na gestão pública e pela governança participativa, com ênfase em mecanismos de fiscalização...</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Ler mais
+                        <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <img src="/api/placeholder/400/200" alt="Entrevista" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-yellow-600 font-semibold">Entrevista</span>
+                        <span class="text-xs text-gray-500">15/02/2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Entrevista com Venâncio Mondlane</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Em entrevista exclusiva, o líder do MPU, Venâncio Mondlane, fala sobre os desafios e oportunidades para Moçambique nos próximos anos...</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Ler mais
+                        <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                <img src="/api/placeholder/400/200" alt="Projeto" class="w-full h-48 object-cover">
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-teal-600 font-semibold">Projeto</span>
+                        <span class="text-xs text-gray-500">10/02/2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Projeto de Digitalização para Áreas Rurais</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">Conheça o projeto do MPU para levar conectividade e inclusão digital às áreas rurais de Moçambique, criando novas oportunidades...</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                        Ler mais
+                        <i class="fas fa-arrow-right ml-1 text-sm"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-8 flex justify-center">
+            <nav class="flex items-center space-x-2">
+                <a href="#" class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">Anterior</a>
+                <a href="#" class="px-3 py-1 rounded border border-blue-500 bg-blue-500 text-white">1</a>
+                <a href="#" class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">2</a>
+                <a href="#" class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">3</a>
+                <span class="px-2 text-gray-600">...</span>
+                <a href="#" class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">10</a>
+                <a href="#" class="px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100">Próxima</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white py-6 mt-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-2xl font-bold">ANAMALALA</h2>
+                    <p class="text-blue-200">Fórum do Povo - Movimento Político Único</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white hover:text-blue-200"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <hr class="border-blue-800 my-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-blue-200">&copy; 2025 Movimento Político Único. Todos os direitos reservados.</p>
+                <div class="flex space-x-4 mt-3 md:mt-0">
+                    <a href="#" class="text-sm text-blue-200 hover:text-white">Termos de Uso</a>
+                    <a href="#" class="text-sm text-blue-200 hover:text-white">Política de Privacidade</a>
+                    <a href="#" class="text-sm text-blue-200 hover:text-white">Contato</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+<script src="../scripts/info/infoList.js"></script>
+</html>

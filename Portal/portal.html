@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal - ANAMALALA</title>
+    <link rel="stylesheet" href="../style/portal/portal.css"></link>
+</head>
+<body>
+    <header>
+        <a href="portal.html" class="logo">
+            <div class="logo-icon"><span>M</span></div>
+            MPU
+        </a>
+        
+        <div class="user-nav">
+            <div class="user-profile">
+                <div class="user-avatar" data-user="avatar">U</div>
+                <span class="user-name" data-user="name">Usuário</span>
+                <div class="dropdown-content">
+                    <a href="../auth/profile.html">Meu Perfil</a>
+                    <a class="btnLogout" href="">Sair</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="welcome-banner">
+            <h1>Bem-vindo ao Portal ANAMALALA!</h1>
+            <p>Junte-se à discussão e faça parte da mudança em Moçambique.</p>
+        </div>
+        
+        
+        <!-- <div class="quick-stats">
+            <div class="stat-card">
+                <div class="stat-icon icon-blue">P</div>
+                <div class="stat-info">
+                    <span class="stat-value" data-stat="activeUsers"></span>
+                    <span class="stat-label">Usuários ativos</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-orange">M</div>
+                <div class="stat-info">
+                    <span class="stat-value" data-stat="newToday"></span>
+                    <span class="stat-label">Novos hoje</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-green">M</div>
+                <div class="stat-info">
+                    <span class="stat-value" data-stat="messagesToday"></span>
+                    <span class="stat-label">Mensagens hoje</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon icon-purple">N</div>
+                <div class="stat-info">
+                    <span class="stat-value" data-stat="newInfo"></span>
+                    <span class="stat-label">Novas informações</span>
+                </div>
+            </div> -->
+        </div>
+        
+        <div class="rooms-container">
+            <div class="room-card">
+                <div class="room-header">
+                    <h2 class="room-title" data-room="title"></h2>
+                    <span class="room-badge">Sala Oficial de Informações </span>
+                </div>
+                <div class="room-body">
+                    <p class="room-description" data-room="description"></p>
+                    <div class="room-stats">
+                        <div class="stat-item">
+                            <div class="stat-value" data-room="stat1"></div>
+                            <div class="stat-label">Aqui encontra as Informações Relevantes sobre a nossa Comunidade!</div>
+                        </div>
+                        <!-- <div class="stat-item">
+                            <div class="stat-value" data-room="stat2"></div>
+                            <div class="stat-label">Hoje</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="room-footer">
+                    <a href="../chat/chat.html" class="btn btn-primary">Entrar</a>
+                </div>
+            </div>
+            
+            <div class="room-card">
+                <div class="room-header">
+                    <h2 class="room-title" data-room="title"></h2>
+                    <span class="room-badge">Entre aqui para Participar do Debate Publico da Comunidade!</span>
+                </div>
+                <div class="room-body">
+                    <p class="room-description" data-room="description"></p>
+                    <div class="room-stats">
+                        <!-- <div class="stat-item">
+                            <div class="stat-value" data-room="stat1"></div>
+                            <div class="stat-label">Mensagens Novas</div>
+                        </div> -->
+                        <div class="stat-item">
+                            <div class="stat-value" data-room="stat2"></div>
+                            <div class="stat-label">Usuários Online</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="room-footer">
+                    <a href="../chat/chat.html" class="btn btn-secondary">Entrar</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 ANAMALALA - Movimento Político Único | Todos os direitos reservados
+    </footer>
+
+    <script src="../scripts/portal/portal.js"></script>
+</body>
+</html>

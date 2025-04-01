@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAMALALA - Gestão de Usuários</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+       :root {
+    --primary-color: #2a6cb0;
+    --secondary-color: #f8f9fa;
+    --accent-color: #e63946;
+    --text-color: #333;
+    --sidebar-width: 250px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: var(--text-color);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: #2a3f54;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    transition: all 0.3s;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar-menu {
+    padding: 20px 0;
+}
+
+.menu-item {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-left: 4px solid var(--accent-color);
+}
+
+.menu-item i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    transition: all 0.3s;
+}
+
+.header {
+    background-color: white;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-sidebar {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin-right: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-name {
+    font-weight: 500;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* User Management Content */
+.content {
+    padding: 30px;
+}
+
+.page-title {
+    margin-bottom: 20px;
+}
+
+.actions-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1e5a9a;
+}
+
+.btn-danger {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #d32f2f;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: var(--text-color);
+}
+
+.btn-outline:hover {
+    background-color: #f1f1f1;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.users-table {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f8f9fa;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+    color: #495057;
+    border-bottom: 1px solid #dee2e6;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+.user-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.status-active {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.status-inactive {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.status-banned {
+    background-color: #fce4ec;
+    color: #ad1457;
+}
+
+.user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.action-btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: var(--text-color);
+    border:none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #e9ecef;
+}
+
+.action-btn.edit:hover {
+    color: #4CAF50;
+}
+
+.action-btn.delete:hover {
+    color: #F44336;
+}
+
+.action-btn.ban:hover {
+    color: #9C27B0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.page-link:hover, .page-link.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+}
+
+.modal-footer {
+    padding: 20px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 70px;
+    }
+
+    .sidebar-collapsed {
+        width: var(--sidebar-width);
+    }
+
+    .main-content {
+        margin-left: 70px;
+    }
+
+    .main-content-expanded {
+        margin-left: var(--sidebar-width);
+    }
+
+    .menu-text {
+        display: none;
+    }
+
+    .menu-text-visible {
+        display: inline;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .actions-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .filter-options {
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .users-table {
+        overflow-x: auto;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-input {
+        flex: 1;
+    }
+}
+
+/* Bulk actions panel */
+.bulk-actions {
+    display: none;
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bulk-actions.visible {
+    display: flex;
+}
+
+.bulk-actions-text {
+    font-weight: 500;
+}
+
+.bulk-actions-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* User details slide panel */
+.slide-panel {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+    overflow-y: auto;
+}
+
+.slide-panel.open {
+    right: 0;
+}
+
+.slide-panel-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slide-panel-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.close-panel {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+}
+
+.slide-panel-body {
+    padding: 20px;
+}
+
+.user-profile {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.user-profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #adb5bd;
+}
+
+.user-profile-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.user-profile-contact {
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.user-profile-status {
+    display: inline-block;
+}
+
+.user-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+.user-details-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    width: 120px;
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.detail-value {
+    flex: 1;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">ANAMALALA</a>
+            </div>
+            <div class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="users.html" class="menu-item active">
+                    <i class="fas fa-users"></i>
+                    <span class="menu-text">Usuários</span>
+                </a>
+                <a href="conteudo.html" class="menu-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span class="menu-text">Conteúdo</span>
+                </a>
+                <a href="messages.html" class="menu-item">
+                    <i class="fas fa-comments"></i>
+                    <span class="menu-text">Mensagens</span>
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    <i class="fas fa-bell"></i>
+                    <span class="menu-text">Notificações</span>
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="menu-text">Relatórios</span>
+                </a>
+                <a href="suggestions.html" class="menu-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <span class="menu-text">Sugestões</span>
+                </a>
+      
+            </div>
+        </div>
+
+        <div class="main-content" id="main-content">
+            <div class="header">
+                <button class="toggle-sidebar" id="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="user-info dropdown">
+                    <div class="user-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="user-name">Administrador</span>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-user-circle"></i> Perfil</a>
+                        <a href="#"><i class="fas fa-cog"></i> Configurações</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Sair</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <h1 class="page-title">Gestão de Usuários</h1>
+
+                <div class="bulk-actions" id="bulk-actions">
+                    <div class="bulk-actions-text">5 usuários selecionados</div>
+                    <div class="bulk-actions-buttons">
+                        <button class="btn btn-outline"><i class="fas fa-envelope"></i> Enviar Mensagem</button>
+                        <button class="btn btn-outline"><i class="fas fa-ban"></i> Suspender</button>
+                        <button class="btn btn-danger"><i class="fas fa-trash"></i> Excluir</button>
+                    </div>
+                </div>
+
+                <div class="actions-bar">
+                    <div class="search-bar">
+                        <input type="text" class="search-input" placeholder="Pesquisar usuários...">
+                    </div>
+                    <div class="filter-options">
+                        <select class="filter-select">
+                            <option value="">Todas Províncias</option>
+                            <option value="maputo">Maputo</option>
+                            <option value="gaza">Gaza</option>
+                            <option value="inhambane">Inhambane</option>
+                            <option value="sofala">Sofala</option>
+                            <option value="manica">Manica</option>
+                            <option value="tete">Tete</option>
+                            <option value="zambezia">Zambézia</option>
+                            <option value="nampula">Nampula</option>
+                            <option value="cabo-delgado">Cabo Delgado</option>
+                            <option value="niassa">Niassa</option>
+                        </select>
+                        <select class="filter-select">
+                            <option value="">Todos Status</option>
+                            <option value="active">Ativos</option>
+                            <option value="inactive">Inativos</option>
+                            <option value="banned">Banidos</option>
+                        </select>
+                        <button class="btn btn-outline"><i class="fas fa-filter"></i> Filtrar</button>
+                        <button class="btn btn-primary" id="add-user-btn"><i class="fas fa-user-plus"></i> Adicionar Usuário</button>
+                    </div>
+                </div>
+
+                <div class="users-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="select-all"></th>
+                                <th>Nome</th>
+                                <th>Província</th>
+                                <th>Contato</th>
+                                <th>Data de Inscrição</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <div class="page-item">
+                        <a href="#" class="page-link"><i class="fas fa-angle-left"></i></a>
+                    </div>
+                    <div class="page-item">
+                        <a href="#" class="page-link active">1</a>
+                    </div>
+                    <div class="page-item">
+                        <a href="#" class="page-link">2</a>
+                    </div>
+                    <div class="page-item">
+                        <a href="#" class="page-link">3</a>
+                    </div>
+                    <div class="page-item">
+                        <a href="#" class="page-link"><i class="fas fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-panel">
+            <div class="slide-panel-header">
+                <div class="slide-panel-title">Detalhes do Usuário</div>
+                <button class="close-panel"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="slide-panel-body">
+                </div>
+        </div>
+        <div class="modal" id="add-user-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Adicionar Usuário</h2>
+                    <button class="close-modal" id="close-add-modal"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-user-form">
+                        <div class="form-group">
+                            <label for="add-name" class="form-label">Nome</label>
+                            <input type="text" id="add-name" class="form-input" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="add-province" class="form-label">Província</label>
+                            <select id="add-province" class="form-select" name="province">
+                                <option value="maputo">Maputo</option>
+                                <option value="gaza">Gaza</option>
+                                <option value="inhambane">Inhambane</option>
+                                <option value="sofala">Sofala</option>
+                                <option value="manica">Manica</option>
+                                <option value="tete">Tete</option>
+                                <option value="zambezia">Zambézia</option>
+                                <option value="nampula">Nampula</option>
+                                <option value="cabo-delgado">Cabo Delgado</option>
+                                <option value="niassa">Niassa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="add-contact" class="form-label">Contato</label>
+                            <input type="text" id="add-contact" class="form-input" name="contact">
+                        </div>
+                        <div class="form-group">
+                            <label for="add-registrationDate" class="form-label">Data de Inscrição</label>
+                            <input type="date" id="add-registrationDate" class="form-input" name="registrationDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="add-status" class="form-label">Status</label>
+                            <select id="add-status" class="form-select" name="status">
+                                <option value="active">Ativo</option>
+                                <option value="inactive">Inativo</option>
+                                <option value="banned">Banido</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-outline" id="cancel-add-user">Cancelar</button>
+                    <button class="btn btn-primary" id="save-add-user">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/admin/users.js"></script>
+</body>
+</html>

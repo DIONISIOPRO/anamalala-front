@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   
+    <link rel="stylesheet" href="../style/admin/conteudo.css">
+
+   
+   <style>
+        /* Estilos CSS (você pode adicionar seus próprios estilos) */
+       
+    </style>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="content.html" class="menu-item active">Conteúdo</a></li>
+            <li><a href="message.html" class="menu-item">Mensagens</a></li>
+            <li><a href="users.html" class="menu-item">Usuários</a></li>
+            <li><a href="settings.html" class="menu-item">Configurações</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="panel content-panel active-panel">
+            <h2>Gestão de Conteúdo</h2>
+            <button class="btn btn-primary">Novo Artigo</button>
+            <button class="btn btn-sm">Exportar</button>
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Conteúdo</th>
+                            <th>Autor</th>
+                            <th>Data</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel message-panel">
+            <h2>Gestão de Mensagens</h2>
+            <button class="btn btn-primary">Nova Mensagem</button>
+            <button class="btn btn-sm">Exportar</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Destinatário</th>
+                        <th>Assunto</th>
+                        <th>Mensagem</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+        <div class="panel users-panel">
+            <h2>Gestão de Usuários</h2>
+            </div>
+        <div class="panel settings-panel">
+            <h2>Configurações</h2>
+            </div>
+    </div>
+
+    <div id="new-article-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Novo Artigo</h2>
+            <form id="new-article-form">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required><br><br>
+                <label for="content">Conteúdo:</label>
+                <textarea id="content" name="content" required></textarea><br><br>
+                <label for="author">Autor:</label>
+                <input type="text" id="author" name="author" required><br><br>
+                <label for="date">Data de Publicação:</label>
+                <input type="date" id="date" name="date" required><br><br>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="edit-article-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Artigo</h2>
+            <form id="edit-article-form">
+                <input type="hidden" id="edit-article-index">
+                <label for="edit-title">Título:</label>
+                <input type="text" id="edit-title" name="title" required><br><br>
+                <label for="edit-content">Conteúdo:</label>
+                <textarea id="edit-content" name="content" required></textarea><br><br>
+                <label for="edit-author">Autor:</label>
+                <input type="text" id="edit-author" name="author" required><br><br>
+                <label for="edit-date">Data de Publicação:</label>
+                <input type="date" id="edit-date" name="date" required><br><br>
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="new-message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Nova Mensagem</h2>
+            <form id="new-message-form">
+                <label for="recipient">Destinatário:</label>
+                <input type="text" id="recipient" name="recipient" required><br><br>
+                <label for="subject">Assunto:</label>
+                <input type="text" id="subject" name="subject" required><br><br>
+                <label for="message">Mensagem:</label>
+                <textarea id="message" name="message" required></textarea><br><br>
+                <label for="date">Data de Envio:</label>
+                <input type="datetime-local" id="date" name="date" required><br><br>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="view-message-modal" class="modal"><div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Visualizar Mensagem</h2>
+        <div id="message-details">
+            <p><strong>Destinatário:</strong> <span id="view-recipient"></span></p>
+            <p><strong>Assunto:</strong> <span id="view-subject"></span></p>
+            <p><strong>Mensagem:</strong> <span id="view-message"></span></p>
+            <p><strong>Data de Envio:</strong> <span id="view-date"></span></p>
+        </div>
+    </div>
+</div>
+
+<script src="../scripts/admin/conteudo.js"></script>
+</body>
+</html>

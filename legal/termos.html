@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamalala - Termos de Uso</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #ff6b00;
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+            --border-color: #dee2e6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: opacity 0.3s;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .auth-buttons a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .auth-buttons a:hover {
+            background-color: #e05c00;
+        }
+        
+        .terms-content {
+            background-color: white;
+            padding: 40px;
+            margin: 40px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .terms-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .terms-header h1 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .terms-header p {
+            color: #666;
+        }
+        
+        .terms-section {
+            margin-bottom: 30px;
+        }
+        
+        .terms-section h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .terms-section p, .terms-section ul {
+            margin-bottom: 15px;
+        }
+        
+        .terms-section ul {
+            padding-left: 20px;
+        }
+        
+        .terms-section ul li {
+            margin-bottom: 8px;
+        }
+        
+        .accept-terms {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            .auth-buttons {
+                margin-top: 20px;
+            }
+            
+            .terms-content {
+                padding: 20px;
+            }
+        }
+        
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .modal-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .modal-buttons {
+            margin-top: 20px;
+        }
+        
+        .modal-buttons button {
+            margin: 0 10px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn-confirm {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+        }
+        
+        .btn-cancel {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>ANAMALALA</h1>
+                    <span>PORTAL DO POVO</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="../Portal/portal.html">Início</a></li>
+                        <li><a href="../legal/sobre-nos.html">Sobre Nos</a></li>
+                        <li><a href="../legal/contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <a href="../auth/login.html">Entrar</a>
+                    <a href="../auth/register.html">Criar Conta</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="terms-content">
+            <div class="terms-header">
+                <h1>Termos de Uso</h1>
+                <p>Última atualização: 31 de Março de 2025</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>1. Aceitação dos Termos</h2>
+                <p>Ao acessar ou utilizar o portal "Anamalala" ("Portal do Povo"), operado pelo MOVIMENTO POLÍTICO ÚNICO (MPU), você concorda em cumprir e estar vinculado a estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não poderá acessar ou utilizar nosso serviço.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>2. Descrição do Serviço</h2>
+                <p>O Anamalala é uma plataforma de fórum de debate político que permite aos usuários:</p>
+                <ul>
+                    <li>Acessar informações gerais do movimento político</li>
+                    <li>Participar em debates públicos e discussões</li>
+                    <li>Enviar sugestões para melhoria da plataforma</li>
+                    <li>Receber notificações sobre atualizações e eventos</li>
+                </ul>
+                <p>O conteúdo na área de informações é gerido exclusivamente pelos administradores, enquanto a sala de debate é aberta para contribuições de todos os usuários registrados.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>3. Registo e Conta</h2>
+                <p>Para utilizar determinadas funcionalidades do portal, é necessário registar-se e criar uma conta. Ao fazê-lo, você concorda em:</p>
+                <ul>
+                    <li>Fornecer informações precisas, atuais e completas durante o processo de registo</li>
+                    <li>Manter e atualizar prontamente seus dados para mantê-los precisos e completos</li>
+                    <li>Manter a segurança da sua senha e aceitar a responsabilidade por todas as atividades realizadas sob sua conta</li>
+                    <li>Notificar-nos imediatamente sobre qualquer uso não autorizado da sua conta ou qualquer outra violação de segurança</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>4. Conduta do Usuário</h2>
+                <p>Ao utilizar a plataforma Anamalala, os usuários devem:</p>
+                <ul>
+                    <li>Respeitar as leis de Moçambique e todos os regulamentos aplicáveis</li>
+                    <li>Respeitar os direitos e a dignidade de outros usuários</li>
+                    <li>Não publicar conteúdo difamatório, obsceno, ameaçador, abusivo ou prejudicial</li>
+                    <li>Não incitar violência, ódio ou discriminação contra qualquer grupo ou indivíduo</li>
+                    <li>Não utilizar a plataforma para fins ilegais ou não autorizados</li>
+                    <li>Não tentar acessar áreas restritas do portal sem autorização</li>
+                    <li>Não interferir ou interromper o funcionamento do serviço</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>5. Conteúdo do Usuário</h2>
+                <p>Ao submeter conteúdo na plataforma Anamalala, você:</p>
+                <ul>
+                    <li>Mantém todos os direitos de propriedade sobre seu conteúdo</li>
+                    <li>Concede ao MPU uma licença mundial, não exclusiva, isenta de royalties para usar, modificar, executar, exibir e distribuir seu conteúdo no âmbito do funcionamento do portal</li>
+                    <li>Declara e garante que tem o direito de conceder tal licença</li>
+                    <li>Entende que os administradores podem, mas não são obrigados a, revisar, filtrar ou remover qualquer conteúdo que viole estes termos</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>6. Direitos de Propriedade Intelectual</h2>
+                <p>O design, logotipos, texto, gráficos, imagens e software que compõem o portal Anamalala são de propriedade do MPU ou de seus licenciadores e são protegidos por leis de direitos autorais e de propriedade intelectual. Você não pode copiar, modificar, publicar, transmitir, distribuir, executar, exibir ou vender qualquer informação ou software obtido deste portal sem autorização prévia por escrito.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>7. Privacidade</h2>
+                <p>Sua privacidade é importante para nós. Nossa Política de Privacidade, que é incorporada a estes Termos de Uso, descreve nossas práticas relativas à coleta, uso e divulgação de suas informações pessoais. Ao utilizar o Anamalala, você concorda com a coleta e uso de informações de acordo com a Política de Privacidade.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>8. Limitação de Responsabilidade</h2>
+                <p>O MPU não será responsável por quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos, incluindo, mas não se limitando a, perda de lucros, dados, uso, boa vontade ou outras perdas intangíveis, resultantes de:</p>
+                <ul>
+                    <li>Seu acesso ou uso ou incapacidade de acessar ou usar o portal</li>
+                    <li>Qualquer conduta ou conteúdo de terceiros no serviço</li>
+                    <li>Conteúdo obtido através do serviço</li>
+                    <li>Acesso não autorizado, uso ou alteração de suas transmissões ou conteúdo</li>
+                </ul>
+            </div>
+            
+            <div class="terms-section">
+                <h2>9. Modificações do Serviço e dos Termos</h2>
+                <p>O MPU reserva-se o direito de modificar ou descontinuar, temporária ou permanentemente, o serviço (ou qualquer parte dele) a qualquer momento, com ou sem aviso prévio. Também podemos modificar estes Termos de Uso a nosso critério. Se fizermos alterações materiais a estes termos, notificaremos os usuários através de um aviso no portal. Seu uso contínuo do serviço após tais modificações constitui sua aceitação dos novos termos.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>10. Encerramento da Conta</h2>
+                <p>O MPU reserva-se o direito de encerrar ou suspender sua conta e acesso ao serviço imediatamente, sem aviso prévio ou responsabilidade, por qualquer motivo, incluindo, sem limitação, a violação destes Termos de Uso. Após o encerramento, seu direito de usar o serviço cessará imediatamente.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>11. Lei Aplicável</h2>
+                <p>Estes Termos de Uso serão regidos e interpretados de acordo com as leis de Moçambique, sem considerar suas disposições de conflito de leis. Qualquer ação legal decorrente ou relacionada a estes termos será apresentada exclusivamente nos tribunais de Moçambique.</p>
+            </div>
+            
+            <div class="terms-section">
+                <h2>12. Contato</h2>
+                <p>Se você tiver alguma dúvida sobre estes Termos de Uso, entre em contato conosco através do email: contato@anamalala.mz</p>
+            </div>
+            
+            <div class="accept-terms">
+                <button id="acceptBtn" class="btn">Aceito os Termos de Uso</button>
+            </div>
+        </div>
+    </main>
+    
+    <div id="modal">
+        <div class="modal-content">
+            <h3>Confirmação de Aceitação</h3>
+            <p>Ao clicar em "Confirmar", você concorda com todos os Termos de Uso da plataforma Anamalala.</p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" id="cancelBtn">Cancelar</button>
+                <button class="btn-confirm" id="confirmBtn">Confirmar</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <h2>ANAMALALA</h2>
+                    <span>PORTAL DO POVO</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../Portal/portal.html">Início</a>
+                    <a href="../legal/sobre-nos.html">Sobre</a>
+                    <a href="../legal/termos.html">Termos de Uso</a>
+                    <a href="../legal/politica-privacidade.html">Política de Privacidade</a>
+                    <a href="../legal/contacto.html">Contacto</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2025 MOVIMENTO POLÍTICO ÚNICO (MPU). Todos os direitos reservados.
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const acceptBtn = document.getElementById('acceptBtn');
+            const modal = document.getElementById('modal');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const confirmBtn = document.getElementById('confirmBtn');
+            
+            // Mostrar modal quando clicar em "Aceito os Termos de Uso"
+            acceptBtn.addEventListener('click', function() {
+                modal.style.display = 'flex';
+            });
+            
+            cancelBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            confirmBtn.addEventListener('click', function() {
+
+                localStorage.setItem('termsAccepted', 'true');
+                window.location.href = '../auth/register.html';
+
+                modal.style.display = 'none';
+            });
+            
+            // Fechar modal se clicar fora dele
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

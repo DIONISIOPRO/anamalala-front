@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - ANAMALALA</title>
+    <link rel="stylesheet" href="../style/auth/login.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><span>M</span></div>
+            MPU
+        </a>
+    </header>
+    
+    <main class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Entrar</h1>
+                <p>Bem-vindo de volta ao ANAMALALA</p>
+            </div>
+            
+            <form id="loginForm" onsubmit="return validateLogin()">
+                <div class="form-group">
+                    <label for="contact">Número de Contacto</label>
+                    <input type="tel" id="contact" name="contact" class="form-input" required placeholder="Ex: 8xXXXXXXX">
+                    <div id="contactError" class="form-error"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Palavra-passe</label>
+                    <input type="password" id="password" name="password" class="form-input" required>
+                    <div id="passwordError" class="form-error"></div>
+                </div>
+                
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Lembrar-me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                
+                <div class="login-divider">
+                    <span>ou</span>
+                </div>
+                
+                <div class="form-footer">
+                    Ainda não tem uma conta? <a href="register.html">Criar Conta</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 ANAMALALA - Movimento Político Único | Todos os direitos reservados
+    </footer>
+
+    <script src="../scripts/auth/login.js"> </script>
+</body>
+</html>

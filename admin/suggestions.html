@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAMALALA - Administração de Sugestões</title>
+    <link rel="stylesheet" href="../style/admin/suggestions.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">ANAMALALA</a>
+            </div>
+            <div class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="users.html" class="menu-item">
+                    <i class="fas fa-users"></i>
+                    <span class="menu-text">Usuários</span>
+                </a>
+                <a href="conteudo.html" class="menu-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span class="menu-text">Conteúdo</span>
+                </a>
+                <a href="messages.html" class="menu-item">
+                    <i class="fas fa-comments"></i>
+                    <span class="menu-text">Mensagens</span>
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    <i class="fas fa-bell"></i>
+                    <span class="menu-text">Notificações</span>
+                </a>
+                <a href="reports.html" class="menu-item">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="menu-text">Relatórios</span>
+                </a>
+                <a href="suggestions.html" class="menu-item active">
+                    <i class="fas fa-lightbulb"></i>
+                    <span class="menu-text">Sugestões</span>
+                </a>
+      
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="page-header">
+                <h1 class="page-title">Gestão de Sugestões</h1>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="exportBtn">Exportar Relatório</button>
+                </div>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-title">Total de Sugestões</div>
+                    <div class="stat-value" id="totalSuggestions"></div>
+                    <div class="stat-change positive"><span></span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Novas Sugestões</div>
+                    <div class="stat-value" id="newSuggestions"></div>
+                    <div class="stat-change positive"><span></span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Sugestões Implementadas</div>
+                    <div class="stat-value" id="implementedSuggestions"></div>
+                    <div class="stat-change positive"><span></span></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Taxa de Implementação</div>
+                    <div class="stat-value" id="implementationRate"></div>
+                    <div class="stat-change positive"><span></span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Filtros e Pesquisa
+                </div>
+                <div class="card-body">
+                    <div class="filter-bar">
+                        <div class="filter-group">
+                            <label class="filter-label">Estado:</label>
+                            <select class="filter-select" id="statusFilter">
+                                <option value="">Todos</option>
+                                <option value="new">Novo</option>
+                                <option value="in-progress">Em Análise</option>
+                                <option value="implemented">Implementado</option>
+                                <option value="declined">Recusado</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Província:</label>
+                            <select class="filter-select" id="provinceFilter">
+                                <option value="">Todas</option>
+                                <option value="maputo">Maputo</option>
+                                <option value="gaza">Gaza</option>
+                                <option value="inhambane">Inhambane</option>
+                                <option value="sofala">Sofala</option>
+                                <option value="manica">Manica</option>
+                                <option value="tete">Tete</option>
+                                <option value="zambezia">Zambézia</option>
+                                <option value="nampula">Nampula</option>
+                                <option value="cabo_delgado">Cabo Delgado</option>
+                                <option value="niassa">Niassa</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label class="filter-label">Categoria:</label>
+                            <select class="filter-select" id="categoryFilter">
+                                <option value="">Todas</option>
+                                <option value="interface">Interface</option>
+                                <option value="functionality">Funcionalidade</option>
+                                <option value="performance">Desempenho</option>
+                                <option value="content">Conteúdo</option>
+                                <option value="other">Outros</option>
+                            </select>
+                        </div>
+                        <div class="search-box">
+                            <span class="search-icon"></span>
+                            <input type="text" class="search-input" id="searchInput" placeholder="Pesquisar sugestões...">
+                        </div>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="filterBtn">Filtrar</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Lista de Sugestões
+                </div>
+                <div class="card-body">
+                    <table class="suggestion-list">
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Usuário</th>
+                                <th>Província</th>
+                                <th>Data</th>
+                                <th>Categoria</th>
+                                <th>Estado</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                    
+                    <div class="pagination">
+                        <div class="page-info">
+                            Mostrando 1-7 de 243 sugestões
+                        </div>
+                        <div class="page-buttons">
+                            <button class="page-btn">«</button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn">4</button>
+                            <button class="page-btn">5</button>
+                            <button class="page-btn">»</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal" id="suggestionDetailModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Detalhe da Sugestão</h2>
+                <button class="close-btn" id="closeDetailModalBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="suggestion-detail">
+                    <h3 class="suggestion-title"></h3>
+                    
+                    <div class="suggestion-meta">
+                        </div>
+                    
+                    <div class="suggestion-content">
+                        <p></p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Atualizar Estado</label>
+                        <select class="form-control">
+                            <option value="new">Novo</option>
+                            <option value="in-progress">Em Análise</option>
+                            <option value="implemented">Implementado</option><option value="declined">Recusado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="response-section">
+                        <div class="response-header">Resposta da Administração</div>
+                        <textarea class="form-control" placeholder="Escreva uma resposta para o usuário..."></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger">Rejeitar Sugestão</button>
+                <button class="btn btn-primary">Salvar Resposta</button>
+                <button class="btn btn-success">Aprovar para Implementação</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./suggestion-dashboard-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAMALALA - Perfil do Usuário</title>
+    <link rel="stylesheet" href="../style/auth/profile.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ANAMALALA</div>
+        <nav class="nav-links">
+            <a href="../Portal/portal.html">Portal</a>
+            <a href="#" class="btnLogout">Sair</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div id="notification" class="notification"></div>
+        
+        <div class="profile-container">
+            <div class="profile-header">
+                <h1 class="profile-title">Meu Perfil</h1>
+                <button class="profile-action" id="btnEditProfile">Editar Perfil</button>
+            </div>
+            
+            <div class="profile-content">
+                <div class="profile-sidebar">
+                    <!-- <img  alt="Avatar do usuário" class="profile-avatar"> -->
+                    <h2 id="userName">Nome do Usuário</h2>
+                    <p id="userProvince">Província</p>
+                </div>
+                
+                <div class="profile-details">
+                    <div id="profileData" class="profile-data">
+                        <h3>Informações Pessoais</h3>
+                        <div class="profile-info">
+                            <span>Nome:</span> <span id="infoName"></span>
+                        </div>
+                        <div class="profile-info">
+                            <span>Contacto:</span> <span id="infoContact"></span>
+                        </div>
+                        <div class="profile-info">
+                            <span>Província:</span> <span id="infoProvince"></span>
+                        </div>
+                        <div class="profile-info">
+                            <span>Data de Registro:</span> <span id="infoRegistration"></span>
+                        </div>
+                 
+                    </div>
+                    
+                    <div id="editForm" class="edit-form">
+                        <h3>Editar Perfil</h3>
+                        <form id="userProfileForm">
+                            <div class="form-group">
+                                <label for="name">Nome Completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contact">Contacto</label>
+                                <input type="tel" id="contact" name="contact" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="province">Província</label>
+                                <select id="province" name="province" required>
+                                    <option value="">Selecione uma província</option>
+                                    <option value="Maputo">Maputo</option>
+                                    <option value="Gaza">Gaza</option>
+                                    <option value="Inhambane">Inhambane</option>
+                                    <option value="Manica">Manica</option>
+                                    <option value="Sofala">Sofala</option>
+                                    <option value="Tete">Tete</option>
+                                    <option value="Zambézia">Zambézia</option>
+                                    <option value="Nampula">Nampula</option>
+                                    <option value="Niassa">Niassa</option>
+                                    <option value="Cabo Delgado">Cabo Delgado</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password">Nova Senha (deixe em branco para manter a atual)</label>
+                                <input type="password" id="password" name="password">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirmar Nova Senha</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                <button type="button" id="btnCancel" class="btn btn-secondary">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../scripts/auth/profile.js">
+        // Simulação de dados do usuário (em uma aplicação real, estes dados viriam do backend)
+        
+    </script>
+</body>
+</html>

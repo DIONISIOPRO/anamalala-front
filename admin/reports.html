@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANAMALALA - Relatórios e Configurações</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../style/admin/reports.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">ANAMALALA</a>
+            </div>
+            <div class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="menu-text">Dashboard</span>
+                </a>
+                <a href="users.html" class="menu-item">
+                    <i class="fas fa-users"></i>
+                    <span class="menu-text">Usuários</span>
+                </a>
+                <a href="conteudo.html" class="menu-item">
+                    <i class="fas fa-newspaper"></i>
+                    <span class="menu-text">Conteúdo</span>
+                </a>
+                <a href="messages.html" class="menu-item">
+                    <i class="fas fa-comments"></i>
+                    <span class="menu-text">Mensagens</span>
+                </a>
+                <a href="notifications.html" class="menu-item">
+                    <i class="fas fa-bell"></i>
+                    <span class="menu-text">Notificações</span>
+                </a>
+                <a href="reports.html" class="menu-item active">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="menu-text">Relatórios</span>
+                </a>
+                <a href="suggestions.html" class="menu-item ">
+                    <i class="fas fa-lightbulb"></i>
+                    <span class="menu-text">Sugestões</span>
+                </a>
+        
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="report-panel active-panel">
+                <div class="page-header">
+                    <div class="page-title">Relatórios e Análises</div>
+                    <div class="admin-actions">
+                        <button class="btn btn-primary"><i class="fas fa-download"></i> Exportar Dados</button>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-users"></i></div>
+                        <div class="stat-value" id="totalUsuarios">Carregando...</div>
+                        <div class="stat-label">Total de Usuários</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="stat-value" id="novosUsuariosMes">Carregando...</div>
+                        <div class="stat-label">Novos este mês</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-comment"></i></div>
+                        <div class="stat-value" id="totalMensagens">Carregando...</div>
+                        <div class="stat-label">Total de Mensagens</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-value" id="taxaEngajamento">Carregando...</div>
+                        <div class="stat-label">Taxa de Engajamento</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>Visão Geral de Análises</div>
+                        <div class="report-filters">
+                            </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="report-tabs">
+                            </div>
+                        <div class="loading-indicator">
+                            <div class="loading-bar"></div>
+                        </div>
+                        <div class="chart-container" id="graficoCrescimento">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>Distribuição de Usuários por Província</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="tabelaProvincias">
+                                <thead>
+                                    <tr>
+                                        <th>Província</th>
+                                        <th>Usuários</th>
+                                        <th>Ativos</th>
+                                        <th>% do Total</th>
+                                        <th>Crescimento</th>
+                                        <th>Engajamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th id="totalUsuariosTabela">Carregando...</th>
+                                        <th id="totalAtivosTabela">Carregando...</th>
+                                        <th>100%</th>
+                                        <th id="crescimentoTotalTabela">Carregando...</th>
+                                        <th><div id="engajamentoTotalTabela"></div></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div>Análise de Conteúdo</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="tabelaConteudo">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo de Conteúdo</th>
+                                        <th>Total</th>
+                                        <th>Visualizações</th>
+                                        <th>Comentários</th>
+                                        <th>Engajamento</th>
+                                        <th>Tendência</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/admin/reports.js"></script>
+</body>
+</html>

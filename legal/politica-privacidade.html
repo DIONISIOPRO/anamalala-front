@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade - Anamalala</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004085;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --success-color: #28a745;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #cccccc;
+        }
+        
+        main {
+            padding: 40px 0;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: var(--secondary-color);
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul, ol {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .privacy-header {
+            background-color: #e9f7fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .privacy-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .privacy-date {
+            text-align: right;
+            margin-top: 40px;
+            color: var(--gray-color);
+            font-style: italic;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">ANAMALALA</div>
+            <nav class="nav-links">
+                <a href="../Portal/portal.html">Início</a>
+                <a href="../legal/sobre-nos.html">Sobre Nós</a>
+                <a href="../auth/login.html">Entrar</a>
+                <a href="../auth/register.html">Criar Conta</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="privacy-header">
+                <h1>Política de Privacidade</h1>
+                <p>Bem-vindo à Política de Privacidade do Portal Anamalala. Este documento descreve como coletamos, usamos, processamos e protegemos os seus dados pessoais ao utilizar nossa plataforma. Comprometemo-nos a respeitar a sua privacidade e a proteger os seus dados pessoais de acordo com a legislação aplicável em Moçambique.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>1. Introdução</h2>
+                <p>O Portal Anamalala é uma plataforma online do Movimento Político Único (MPU) destinada a facilitar a comunicação, debate e partilha de informações entre os seus membros e apoiadores. Esta Política de Privacidade aplica-se a todos os utilizadores da plataforma e explica como tratamos os seus dados.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>2. Dados que Coletamos</h2>
+                <p>Ao utilizar o Portal Anamalala, podemos coletar os seguintes tipos de dados:</p>
+                
+                <h3>2.1 Dados de Cadastro</h3>
+                <ul>
+                    <li>Nome completo</li>
+                    <li>Província de residência</li>
+                    <li>Número de telefone</li>
+                    <li>Endereço de e-mail (quando fornecido)</li>
+                    <li>Senha (armazenada de forma criptografada)</li>
+                </ul>
+                
+                <h3>2.2 Dados de Utilização</h3>
+                <ul>
+                    <li>Mensagens e conteúdos publicados nas salas de debate</li>
+                    <li>Sugestões enviadas através da plataforma</li>
+                    <li>Histórico de acesso e interações na plataforma</li>
+                    <li>Endereço IP e informações do dispositivo</li>
+                    <li>Cookies e tecnologias similares</li>
+                </ul>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>3. Como Utilizamos os Seus Dados</h2>
+                <p>Utilizamos os dados coletados para os seguintes fins:</p>
+                
+                <h3>3.1 Prestação de Serviços</h3>
+                <ul>
+                    <li>Criação e gestão da sua conta</li>
+                    <li>Permitir a sua participação nas salas de debate</li>
+                    <li>Fornecer acesso às informações publicadas</li>
+                    <li>Responder às suas solicitações e dúvidas</li>
+                </ul>
+                
+                <h3>3.2 Comunicação</h3>
+                <ul>
+                    <li>Enviar notificações sobre atualizações na plataforma</li>
+                    <li>Informar sobre eventos, ações e atividades do MPU</li>
+                    <li>Responder às suas mensagens e solicitações</li>
+                    <li>Enviar informações relevantes sobre o movimento</li>
+                </ul>
+                
+                <h3>3.3 Melhoria da Plataforma</h3>
+                <ul>
+                    <li>Analisar padrões de uso para melhorar a experiência do usuário</li>
+                    <li>Identificar e corrigir problemas técnicos</li>
+                    <li>Desenvolver novos recursos e funcionalidades</li>
+                    <li>Monitorar o desempenho da plataforma</li>
+                </ul>
+                
+                <h3>3.4 Segurança e Conformidade</h3>
+                <ul>
+                    <li>Proteger a segurança da plataforma e dos usuários</li>
+                    <li>Prevenir e detectar atividades fraudulentas ou abusivas</li>
+                    <li>Cumprir obrigações legais e regulatórias</li>
+                </ul>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>4. Base Legal para o Tratamento</h2>
+                <p>O tratamento dos seus dados pessoais é realizado com base nas seguintes bases legais:</p>
+                <ul>
+                    <li><strong>Execução de Contrato:</strong> Para fornecer os serviços solicitados quando você se registra e utiliza a plataforma.</li>
+                    <li><strong>Consentimento:</strong> Quando você concorda explicitamente com o tratamento dos seus dados para finalidades específicas.</li>
+                    <li><strong>Interesses Legítimos:</strong> Para melhorar nossos serviços, proteger a segurança da plataforma e dos usuários, e para comunicações relevantes sobre o movimento.</li>
+                    <li><strong>Obrigação Legal:</strong> Quando necessário para cumprir obrigações legais às quais estamos sujeitos.</li>
+                </ul>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>5. Compartilhamento de Dados</h2>
+                <p>Podemos compartilhar os seus dados pessoais nas seguintes circunstâncias:</p>
+                
+                <h3>5.1 Com Outros Usuários</h3>
+                <p>As informações que você compartilha publicamente na plataforma (como mensagens nas salas de debate, nome e província) serão visíveis para outros usuários da plataforma.</p>
+                
+                <h3>5.2 Com Prestadores de Serviços</h3>
+                <p>Podemos compartilhar dados com prestadores de serviços que nos ajudam a operar, manter e melhorar a plataforma (como provedores de serviços de hospedagem, análise de dados e suporte técnico).</p>
+                
+                <h3>5.3 Por Obrigação Legal</h3>
+                <p>Quando exigido por lei, ordem judicial ou solicitação de autoridade competente.</p>
+                
+                <h3>5.4 Com o Seu Consentimento</h3>
+                <p>Quando você autorizar expressamente o compartilhamento para finalidades específicas.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>6. Segurança dos Dados</h2>
+                <p>Empregamos medidas técnicas e organizacionais apropriadas para proteger os seus dados pessoais, incluindo:</p>
+                <ul>
+                    <li>Criptografia de dados sensíveis, como senhas</li>
+                    <li>Proteção contra acessos não autorizados</li>
+                    <li>Backups regulares</li>
+                    <li>Monitoramento contínuo da segurança</li>
+                    <li>Políticas de acesso e controle para funcionários e colaboradores</li>
+                </ul>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>7. Seus Direitos</h2>
+                <p>Você tem os seguintes direitos em relação aos seus dados pessoais:</p>
+                <ul>
+                    <li><strong>Acesso:</strong> Solicitar confirmação da existência de tratamento e acesso aos seus dados.</li>
+                    <li><strong>Correção:</strong> Solicitar a correção de dados incompletos, inexatos ou desatualizados.</li>
+                    <li><strong>Exclusão:</strong> Solicitar a exclusão dos seus dados, exceto nos casos previstos por lei.</li>
+                    <li><strong>Limitação:</strong> Solicitar a limitação do tratamento dos seus dados.</li>
+                    <li><strong>Oposição:</strong> Opor-se ao tratamento dos seus dados quando realizado com base em interesses legítimos.</li>
+                    <li><strong>Portabilidade:</strong> Solicitar a portabilidade dos seus dados para outro fornecedor de serviço.</li>
+                    <li><strong>Revogação do Consentimento:</strong> Revogar o consentimento a qualquer momento.</li>
+                </ul>
+                <p>Para exercer os seus direitos, entre em contacto connosco pelos canais indicados no final desta política.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>8. Período de Retenção</h2>
+                <p>Conservamos os seus dados pessoais apenas pelo tempo necessário para cumprir as finalidades para as quais foram coletados, a menos que um período de retenção mais longo seja exigido ou permitido por lei. Os critérios utilizados para determinar os períodos de retenção incluem:</p>
+                <ul>
+                    <li>Duração da sua relação com a plataforma</li>
+                    <li>Obrigações legais às quais estamos sujeitos</li>
+                    <li>Recomendações de autoridades de proteção de dados</li>
+                    <li>Períodos de prescrição de direitos</li>
+                </ul>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>9. Cookies e Tecnologias Similares</h2>
+                <p>Utilizamos cookies e tecnologias similares para melhorar a sua experiência na plataforma, lembrar as suas preferências e analisar como você utiliza os nossos serviços. Você pode gerenciar as suas preferências de cookies através das configurações do seu navegador.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>10. Alterações à Política de Privacidade</h2>
+                <p>Podemos atualizar esta Política de Privacidade periodicamente para refletir alterações nas nossas práticas ou obrigações legais. Informaremos sobre alterações significativas através de aviso na plataforma ou por outros meios apropriados. Recomendamos que você revise esta política regularmente.</p>
+            </div>
+            
+            <div class="privacy-section">
+                <h2>11. Contacto</h2>
+                <p>Se tiver dúvidas, comentários ou solicitações relacionadas a esta Política de Privacidade ou ao tratamento dos seus dados pessoais, entre em contacto connosco através de:</p>
+                <ul>
+                    <li>Email: privacidade@anamalala.mz</li>
+                    <li>Telefone: +258 21 123 456</li>
+                    <li>Endereço: Av. Julius Nyerere, 1234, Maputo, Moçambique</li>
+                </ul>
+            </div>
+            
+            <div class="privacy-date">
+                <p>Última atualização: 15 de Março de 2025</p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Anamalala - Movimento Político Único (MPU). Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="sobre-nos.html">Sobre Nós</a>
+                <a href="contacto.html">Contacto</a>
+                <a href="politica-privacidade.html">Política de Privacidade</a>
+                <a href="termos-uso.html">Termos de Uso</a>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Script simples para destacar seções quando clicadas
+            const sections = document.querySelectorAll('.privacy-section');
+            
+            sections.forEach(section => {
+                section.addEventListener('click', function() {
+                    // Remove a classe 'highlight' de todas as seções
+                    sections.forEach(s => s.style.backgroundColor = '');
+                    
+                    // Adiciona a classe 'highlight' à seção clicada
+                    this.style.backgroundColor = '#f8f9fa';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
