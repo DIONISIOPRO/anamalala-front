@@ -1,5 +1,5 @@
 // Configuration
-const API_BASE_URL = 'https://64.23.215.68:8080';
+const API_BASE_URL = 'https://freesexy.net:8080';
 const ARTICLES_PER_PAGE = 6; // Number of articles displayed per page
 
 // State management

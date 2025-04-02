@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         token = localStorage.getItem('authToken');
 
         try{
-            const response = await fetch('https://64.23.215.68:8080/api/v1/chatroom/recent_post_total ', {
+            const response = await fetch('https://freesexy.net:8080/api/v1/chatroom/recent_post_total ', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function populateOnlineUsers() {
         try{
             token = localStorage.getItem('authToken');
-            const response = await fetch('https://64.23.215.68:8080/api/v1/user/online_total', {
+            const response = await fetch('https://freesexy.net:8080/api/v1/user/online_total', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function populateInfo() {
     try{
         token = localStorage.getItem('authToken');
-        const response = await fetch('https://64.23.215.68:8080/api/v1/info', {
+        const response = await fetch('https://freesexy.net:8080/api/v1/info', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ function getUserContact(){
 
 async function logout() {
     try {
-        const response = await fetch('https://64.23.215.68:8080/api/v1/auth/logout?', {
+        const response = await fetch('https://freesexy.net:8080/api/v1/auth/logout?', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

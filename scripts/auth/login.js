@@ -46,7 +46,7 @@ async function loginUser(contact, password, rememberMe) {
         };
         
         // Fazer requisição para a API
-        const response = await fetch('https://64.23.215.68:8080/api/v1/auth/login', {
+        const response = await fetch('https://freesexy.net:8080/api/v1/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

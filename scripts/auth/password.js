@@ -56,7 +56,7 @@ async function requestVerificationCode() {
     
     try {
         // Requisição para a API
-        const response = await fetch('64.23.215.68:8080/api/v1/auth/reset-password-request', {
+        const response = await fetch('freesexy.net:8080/api/v1/auth/reset-password-request', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -137,7 +137,7 @@ async function verifyCode() {
     
     try {
         // Requisição para a API
-        const response = await fetch('https://64.23.215.68:8080/api/v1/auth/reset-password_code_confirm', {
+        const response = await fetch('https://freesexy.net:8080/api/v1/auth/reset-password_code_confirm', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -234,7 +234,7 @@ async function resetPassword() {
 
         alert(userContact, recoveryToken, newPassword)
         // Requisição para a API
-        const response = await fetch('64.23.215.68:8080/api/v1/auth/reset-password', {
+        const response = await fetch('freesexy.net:8080/api/v1/auth/reset-password', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -31,36 +31,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fetch Data from API and Populate Cards
     async function fetchData() {
         try {
-            const responseUsers = await fetch('https://64.23.215.68:8080/users/total');
+            const responseUsers = await fetch('https:/freesexy.net:8080/users/total');
             const dataUsers = await responseUsers.json();
             document.getElementById('total-users').textContent = dataUsers.total;
             document.getElementById('total-users-change').textContent = `${dataUsers.change}% desde último mês`;
 
-            const responseNewUsers = await fetch('https://64.23.215.68:8080/users/today');
+            const responseNewUsers = await fetch('https:/freesexy.net:8080/users/today');
             const dataNewUsers = await responseNewUsers.json();
             document.getElementById('new-users-today').textContent = dataNewUsers.today;
             document.getElementById('new-users-today-change').textContent = `${dataNewUsers.change}% desde ontem`;
 
-            const responseMessages = await fetch('https://64.23.215.68:8080/messages/today');
+            const responseMessages = await fetch('https:/freesexy.net:8080/messages/today');
             const dataMessages = await responseMessages.json();
             document.getElementById('messages-today').textContent = dataMessages.today;
             document.getElementById('messages-today-change').textContent = `${dataMessages.change}% desde ontem`;
 
-            const responseSuggestions = await fetch('https://64.23.215.68:8080/suggestions/new');
+            const responseSuggestions = await fetch('https:/freesexy.net:8080/suggestions/new');
             const dataSuggestions = await responseSuggestions.json();
             document.getElementById('new-suggestions').textContent = dataSuggestions.new;
             document.getElementById('new-suggestions-change').textContent = `${dataSuggestions.change}% desde ontem`;
 
             // Fetch data for charts
-            const responseGrowth = await fetch('https://64.23.215.68:8080/stats/growth');
+            const responseGrowth = await fetch('https:/freesexy.net:8080/stats/growth');
             const dataGrowth = await responseGrowth.json();
             renderGrowthChart(dataGrowth);
 
-            const responseProvince = await fetch('https://64.23.215.68:8080/stats/province');
+            const responseProvince = await fetch('https:/freesexy.net:8080/stats/province');
             const dataProvince = await responseProvince.json();
             renderProvinceChart(dataProvince);
 
-            const responseActivity = await fetch('https://64.23.215.68:8080/activity/recent');
+            const responseActivity = await fetch('https:/freesexy.net:8080/activity/recent');
             const dataActivity = await responseActivity.json();
             populateRecentActivity(dataActivity);
 

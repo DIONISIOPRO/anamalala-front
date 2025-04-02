@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiBaseUrl = 'https://64.23.215.68:8000/api'; // Ajuste a URL da sua API
+    const apiBaseUrl = 'https://freesexy.net:8000/api'; // Ajuste a URL da sua API
 
     // Função para buscar dados da API
     async function fetchData(endpoint) {

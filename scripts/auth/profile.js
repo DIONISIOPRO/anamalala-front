@@ -13,7 +13,7 @@ const btnLogout = document.querySelector('.btnLogout');
 
 
 // URL base da API
-const API_URL = 'https://64.23.215.68:8080/api/v1';
+const API_URL = 'https://freesexy.net:8080/api/v1';
 
 // Funções para interagir com a API
 async function fetchUserData() {

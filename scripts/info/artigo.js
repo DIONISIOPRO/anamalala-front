@@ -1,7 +1,7 @@
 // Script to dynamically load article content from API
 document.addEventListener('DOMContentLoaded', function() {
     // API endpoint
-    const API_URL = 'https://64.23.215.68:8000/articles';
+    const API_URL = 'https://freesexy.net:8000/articles';
     
     // Get article ID from URL if available
     const urlParams = new URLSearchParams(window.location.search);
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to fetch article by ID
 function fetchArticle(articleId) {
-    fetch(`https://64.23.215.68:8000/articles/${articleId}`)
+    fetch(`https://freesexy.net:8000/articles/${articleId}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -80,7 +80,7 @@ function populateArticle(article) {
 
 // Function to fetch and populate related articles
 function fetchRelatedArticles() {
-    fetch('https://64.23.215.68:8000/related-articles')
+    fetch('https://freesexy.net:8000/related-articles')
         .then(response => response.json())
         .then(data => {
             const relatedContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.gap-4');
@@ -107,7 +107,7 @@ function fetchRelatedArticles() {
 
 // Function to fetch and populate popular articles
 function fetchPopularArticles() {
-    fetch('https://64.23.215.68:8000/popular-articles')
+    fetch('https://freesexy.net:8000/popular-articles')
         .then(response => response.json())
         .then(data => {
             const popularContainer = document.querySelector('.bg-white.rounded-lg.shadow-md.p-4.mb-6 .space-y-4');
@@ -136,7 +136,7 @@ function fetchPopularArticles() {
 
 // Function to fetch and populate upcoming events
 function fetchUpcomingEvents() {
-    fetch('https://64.23.215.68:8000/events')
+    fetch('https://freesexy.net:8000/events')
         .then(response => response.json())
         .then(data => {
             const eventsContainer = document.querySelector('.bg-white.rounded-lg.shadow-md.p-4:last-child .space-y-4');

@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const commentTemplate = document.getElementById('comment-template');
 
     // Configurações da API
-    const API_BASE_URL = 'https://64.23.215.68:8080/api/v1/chatroom';
-    const WS_URL = 'https://64.23.215.68:8080/api/v1/chatroom/ws';
+    const API_BASE_URL = 'https://freesexy.net:8080/api/v1/chatroom';
+    const WS_URL = 'https://freesexy.net:8080/api/v1/chatroom/ws';
 
     // Estado da aplicação
     let currentUser = null;
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function logout() {
         try {
-            const response = await fetch('64.23.215.68:8080/api/v1/auth/logout', {
+            const response = await fetch('freesexy.net:8080/api/v1/auth/logout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

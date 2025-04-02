@@ -55,7 +55,7 @@ async function registerUser(name, province, contact, password) {
         };
            // Mostrar mensagem de sucesso        
         // Fazer requisição para a API
-        const response = await fetch('https://64.23.215.68:8080/api/v1/auth/register', {
+        const response = await fetch('https://freesexy.net.68:8080/api/v1/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     async function carregarRelatorios() {
         try {
-            const resposta = await fetch('https://64.23.215.68:8080/reports');
+            const resposta = await fetch('https://freesexy.net:8080/reports');
             if (!resposta.ok) {
                 throw new Error(`Erro na requisição: ${resposta.status}`);
             }

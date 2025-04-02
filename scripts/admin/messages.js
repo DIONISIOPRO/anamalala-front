@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Função para buscar e exibir mensagens da API
     function buscarMensagens() {
-      fetch('https://64.23.215.68:8080/mensagens') // Substitua '/mensagens' pelo endpoint correto
+      fetch('https://freesexy.net:8080/mensagens') // Substitua '/mensagens' pelo endpoint correto
         .then(response => {
           if (!response.ok) {
             throw new Error('Erro na requisição: ' + response.status);
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const data = dataFilter.value;
       const pesquisa = searchInput.value;
   
-      fetch(`https://64.23.215.68:8080/mensagens?provincia=${provincia}&estado=${estado}&data=${data}&pesquisa=${pesquisa}`)
+      fetch(`https://freesexy.net:8080/mensagens?provincia=${provincia}&estado=${estado}&data=${data}&pesquisa=${pesquisa}`)
         .then(response => response.json())
         .then(data => exibirMensagens(data))
         .catch(error => console.error('Erro ao filtrar:', error));
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
     // Implementação da paginação
     function buscarPaginacao(page){
-      fetch(`https://64.23.215.68:8080/mensagens?page=${page}`)
+      fetch(`https://freesexy.net:8080/mensagens?page=${page}`)
       .then(response => response.json())
       .then(data => {
         exibirMensagens(data.mensagens);

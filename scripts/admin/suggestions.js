@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     async function fetchSuggestions() {
         try {
-            const response = await fetch('https://64.23.215.68:8080/suggestions');
+            const response = await fetch('https://freesexy.net:8080/suggestions');
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
