@@ -209,23 +209,31 @@ document.addEventListener('DOMContentLoaded', function () {
                     'Authorization': `Bearer ${localStorage.getItem('authToken')}`
                 }
             });
-
+    
             if (!response.ok) {
                 throw new Error('Erro ao carregar posts');
             }
-
+    
             const result = await response.json();
             posts = result.data.posts;
+            // Inverter a ordem dos posts para que os mais antigos apareçam primeiro
+            posts.reverse();
+            
             // Limpa o container de posts
             while (postsContainer.firstChild) {
                 postsContainer.removeChild(postsContainer.firstChild);
             }
-
-            // Renderiza os posts
+    
+            // Renderiza os posts em ordem cronológica (mais antigos primeiro)
             posts.forEach(post => {
                 renderPost(post);
             });
-
+            
+            // Rola para o último post (mais recente)
+            setTimeout(() => {
+                postsContainer.scrollTop = postsContainer.scrollHeight;
+            }, 100);
+    
         } catch (error) {
             console.error('Erro ao carregar posts:', error);
             showStatusMessage('Erro ao carregar publicações. Tente novamente mais tarde.', 'error');
@@ -233,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
             loadingPosts.style.display = 'none';
         }
     }
+    
 
     // Renderiza um post no DOM
     function renderPost(post) {
@@ -259,7 +268,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const commentForm = postElement.querySelector('.comment-form');
         commentAction.addEventListener('click', () => {
-            commentForm.style.display = commentForm.style.display === 'none' || !commentForm.style.display ? 'block' : 'none';
+            commentForm.style.display = 'none';
+            commentForm.style.display = commentForm.style.display === 'none' ? 'block' : 'none';
         });
 
         // const shareAction = postElement.querySelector('.share-action');
@@ -327,16 +337,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-        const replySubmit = commentElement.querySelector('.reply-submit');
-        const replyInput = commentElement.querySelector('.reply-input');
-        replySubmit.addEventListener('click', () => {
-            const content = replyInput.value.trim();
-            if (content) {
-                submitReply(comment.id, content);
-                replyInput.value = '';
-                replyForm.classList.add('hidden');
-            }
-        });
+        // const replySubmit = commentElement.querySelector('.reply-submit');
+        // const replyInput = commentElement.querySelector('.reply-input');
+        // replySubmit.addEventListener('click', () => {
+        //     const content = replyInput.value.trim();
+        //     if (content) {
+        //         submitReply(comment.id, content);
+        //         replyInput.value = '';
+        //         replyForm.classList.add('hidden');
+        //     }
+        // });
 
         // Renderiza respostas existentes
         const repliesContainer = commentElement.querySelector('.comment-replies');
@@ -390,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     async function logout() {
         try {
-            const response = await fetch('freesexy.net:8080/api/v1/auth/logout', {
+            const response = await fetch('https://freesexy.net:8080/api/v1/auth/logout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -443,33 +453,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Manipula um novo post recebido via WebSocket
     function handleNewPost(post) {
-        // Adiciona o novo post ao início da lista
-        posts.unshift(post);
-
+        // Adiciona o novo post ao final da lista
+        posts.push(post);
+    
         // Renderiza o novo post
         const postElement = document.importNode(postTemplate.content, true);
         const newPost = postElement.querySelector('.post');
-
+    
         newPost.dataset.postId = post.id;
         newPost.querySelector('.post-author').textContent = post.author.name;
         newPost.querySelector('.post-time').textContent = formatDate(post.created_at);
         newPost.querySelector('.post-content').textContent = post.content;
         newPost.querySelector('.like-count').textContent = 0;
         newPost.querySelector('.comment-count').textContent = 0;
-
+    
         // Adiciona eventos
         const likeAction = newPost.querySelector('.like-action');
         likeAction.addEventListener('click', () => likePost(post.id));
-
+    
         const commentAction = newPost.querySelector('.comment-action');
         const commentForm = newPost.querySelector('.comment-form');
         commentAction.addEventListener('click', () => {
             commentForm.style.display = commentForm.style.display === 'none' || !commentForm.style.display ? 'block' : 'none';
         });
-
-        const shareAction = newPost.querySelector('.share-action');
-        shareAction.addEventListener('click', () => sharePost(post.id));
-
+    
         const commentSubmit = newPost.querySelector('.comment-submit');
         const commentInput = newPost.querySelector('.comment-input');
         commentSubmit.addEventListener('click', () => {
@@ -478,22 +485,24 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitComment(post.id, content);
                 commentInput.value = '';
             }
+            commentForm.style.display = 'none';
         });
-
+    
         // Adiciona classe de destaque para novos posts
         newPost.classList.add('new-post');
-
-        // Insere o novo post no início
-        if (postsContainer.firstChild) {
-            postsContainer.insertBefore(newPost, postsContainer.firstChild);
-        } else {
-            postsContainer.appendChild(newPost);
-        }
-
+    
+        // Insere o novo post no final do container
+        postsContainer.appendChild(newPost);
+    
         // Remove o destaque após alguns segundos
         setTimeout(() => {
             newPost.classList.remove('new-post');
-        }, 5000);
+        }, 11000);
+        
+        // Rola para o novo post
+        setTimeout(() => {
+            newPost.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
     }
 
     // Manipula um novo comentário recebido via WebSocket
@@ -515,7 +524,7 @@ document.addEventListener('DOMContentLoaded', function () {
         commentElement.classList.add('new-comment');
         setTimeout(() => {
             commentElement.classList.remove('new-comment');
-        }, 5000);
+        }, 1000);
     }
 
     // Manipula uma nova resposta a comentário recebida via WebSocket
@@ -573,11 +582,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // Envia um novo post
     async function submitPost(content) {
         if (!content.trim()) return;
-
+    
         try {
             submitPostButton.disabled = true;
             submitPostButton.innerHTML = '<span class="loading-spinner"></span> Publicando...';
-
+    
             const response = await fetch(`${API_BASE_URL}/post`, {
                 method: 'POST',
                 headers: {
@@ -586,15 +595,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 body: JSON.stringify({ content })
             });
-
+    
             if (!response.ok) {
                 throw new Error('Erro ao criar post');
             }
-
-            // Limpa o campo de texto
+    
+            // Limpa o campo de texto e ajusta a altura
             postInput.value = '';
-
+            postInput.style.height = 'auto';
+    
             // O novo post será recebido e adicionado via WebSocket
+            // A rolagem acontecerá na função handleNewPost
         } catch (error) {
             console.error('Erro ao publicar:', error);
             showStatusMessage('Erro ao publicar. Tente novamente.', 'error');
@@ -603,7 +614,6 @@ document.addEventListener('DOMContentLoaded', function () {
             submitPostButton.textContent = 'Publicar';
         }
     }
-
     // Curte um post
     async function likePost(postId) {
         try {
@@ -768,52 +778,109 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Rolagem infinita para carregar mais posts
     function setupInfiniteScroll() {
-        let offset = 1;
+        let offset = 2; // Começamos da página 2 já que carregamos a página 1 inicialmente
         let limit = 10;
         let loading = false;
         let hasMore = true;
-
-        window.addEventListener('scroll', async () => {
+    
+        // Detectar quando o usuário rola para o topo
+        postsContainer.addEventListener('scroll', async () => {
             if (loading || !hasMore) return;
-
-            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-
-            if (scrollTop + clientHeight >= scrollHeight - 100) {
+    
+            // Verifica se o usuário está próximo do topo (rolando para cima)
+            if (postsContainer.scrollTop < 100) {
                 loading = true;
-
+    
                 try {
-                    // Adiciona um indicador de carregamento
+                    // Adiciona um indicador de carregamento no topo
                     const loadingIndicator = document.createElement('div');
                     loadingIndicator.className = 'loading-indicator';
-                    loadingIndicator.innerHTML = '<span class="loading-spinner"></span> Carregando mais publicações...';
-                    postsContainer.appendChild(loadingIndicator);
-
+                    loadingIndicator.innerHTML = '<span class="loading-spinner"></span> Carregando publicações anteriores...';
+                    
+                    // Salva a posição atual de rolagem
+                    const scrollHeight = postsContainer.scrollHeight;
+                    const scrollPosition = postsContainer.scrollTop;
+                    
+                    // Insere o indicador no início
+                    postsContainer.insertBefore(loadingIndicator, postsContainer.firstChild);
+    
                     const response = await fetch(`${API_BASE_URL}/posts?limit=${limit}&page=${offset}`, {
                         headers: {
                             'Authorization': `Bearer ${localStorage.getItem('authToken')}`
                         }
                     });
-
+    
                     if (!response.ok) {
                         throw new Error('Erro ao carregar mais posts');
                     }
-
+    
                     const data = await response.json();
-
+                    
                     // Remove o indicador de carregamento
                     postsContainer.removeChild(loadingIndicator);
-
-                    if (data.data.total < limit) {
+    
+                    if (data.data.posts.length === 0) {
                         hasMore = false;
                         return;
                     }
-
-                    // Adiciona os novos posts
-                    data.data.posts.forEach(post => {
-                        posts.push(post);
-                        renderPost(post);
+    
+                    // Inverte os novos posts para manter a ordem cronológica
+                    const newPosts = data.data.posts.reverse();
+                    
+                    // Adiciona os novos posts no início (posts mais antigos)
+                    newPosts.forEach(post => {
+                        const postElement = document.importNode(postTemplate.content, true);
+                        const newPost = postElement.querySelector('.post');
+                        
+                        // Configura o post
+                        newPost.dataset.postId = post.id;
+                        newPost.querySelector('.post-author').textContent = post.author.name;
+                        newPost.querySelector('.post-time').textContent = formatDate(post.created_at);
+                        newPost.querySelector('.post-content').textContent = post.content;
+                        newPost.querySelector('.like-count').textContent = post.likes || 0;
+                        newPost.querySelector('.comment-count').textContent = post.comments ? post.comments.length : 0;
+                        
+                        // Adiciona eventos
+                        const likeAction = newPost.querySelector('.like-action');
+                        likeAction.addEventListener('click', () => likePost(post.id));
+                        
+                        const commentAction = newPost.querySelector('.comment-action');
+                        const commentForm = newPost.querySelector('.comment-form');
+                        commentAction.addEventListener('click', () => {
+                            commentForm.style.display = commentForm.style.display === 'none' || !commentForm.style.display ? 'block' : 'none';
+                        });
+                        
+                        const commentSubmit = newPost.querySelector('.comment-submit');
+                        const commentInput = newPost.querySelector('.comment-input');
+                        commentSubmit.addEventListener('click', () => {
+                            const content = commentInput.value.trim();
+                            if (content) {
+                                submitComment(post.id, content);
+                                commentInput.value = '';
+                            }
+                            commentForm.style.display = 'none';
+                        });
+                        
+                        // Renderiza comentários existentes
+                        const commentsContainer = newPost.querySelector('.comments-container');
+                        if (post.comments && post.comments.length > 0) {
+                            post.comments.forEach(comment => {
+                                const commentElement = renderComment(comment);
+                                commentsContainer.appendChild(commentElement);
+                            });
+                        }
+                        
+                        // Insere no início do container
+                        postsContainer.insertBefore(newPost, postsContainer.firstChild);
+                        
+                        // Adiciona ao array de posts
+                        posts.unshift(post);
                     });
-
+    
+                    // Mantém a posição de rolagem para evitar "saltos"
+                    const newScrollHeight = postsContainer.scrollHeight;
+                    postsContainer.scrollTop = scrollPosition + (newScrollHeight - scrollHeight);
+    
                     offset += 1;
                 } catch (error) {
                     console.error('Erro ao carregar mais posts:', error);
@@ -824,7 +891,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-
     // Inicializa a aplicação
     function init() {
         if (!checkAuth()) {

@@ -75,6 +75,11 @@ async function updateUserProfile(updatedData) {
         showLoading(false);
     }
 }
+function getUserContact(){
+    let user = localStorage.getItem("userData")
+    data = JSON.parse(user)
+    return  data.contact;
+}
 
 async function logout() {
     try {
@@ -84,7 +89,9 @@ async function logout() {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${getAuthToken()}`
-            }
+            },
+            body: JSON.stringify({ 'contact': getUserContact(), })
+
         });
 
         if (!response.ok) {

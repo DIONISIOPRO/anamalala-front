@@ -55,7 +55,7 @@ async function registerUser(name, province, contact, password) {
         };
            // Mostrar mensagem de sucesso        
         // Fazer requisição para a API
-        const response = await fetch('https://freesexy.net.68:8080/api/v1/auth/register', {
+        const response = await fetch('https://freesexy.net:8080/api/v1/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -72,11 +72,7 @@ async function registerUser(name, province, contact, password) {
                 localStorage.setItem('authToken', data.token);
                 localStorage.setItem('userData', JSON.stringify(data.user));
             }
-            
-            // Mostrar mensagem de sucesso
-            alert('Conta criada com sucesso! ' + (data.verificationRequired ? 
-                'Verifique seu telefone para ativar sua conta.' : 'Redirecionando para o portal...'));
-            
+    
             // Redirecionar conforme resposta da API
             if (!data.verificationRequired) {
                 window.location.href = 'login.html';
@@ -92,7 +88,8 @@ async function registerUser(name, province, contact, password) {
                 // Usuário já existe
                 document.getElementById('contactError').textContent = 'Este número de contacto já está registado.';
             } else {
-                // Outros erros
+                document.getElementById('confirmPasswordError').textContent = 'Houve um erro ao criar a sua conta, tente com outros dados.';
+
             }
         }
         
