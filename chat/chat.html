@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 
-    <title>Fórum de Debate - Anamalala</title>
+    <title>Debate - Anamalala</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../style/chat/chatroom.css">
@@ -86,54 +86,68 @@
 
             <div class="post-form">
                 <textarea id="post-input" class="post-input"
-                    placeholder="O que você está pensando? Compartilhe suas ideias com o movimento..."
+                    placeholder="Mensagem..."
                     rows="1"></textarea>
                 <button id="submit-post" class="button">Publicar</button>
             </div>
         </div>
     </div>
 
-   <!-- Modificação do template post-template -->
-<template id="post-template">
-    <div class="post" data-post-id="">
-        <div class="post-header">
-            <span class="post-author"></span>
-            <span class="post-time"></span>
-        </div>
-        <div class="post-content"></div>
-        <div class="post-actions">
-            <div class="post-action like-action">
-                <i class="fas fa-thumbs-up"></i> <span class="like-count">0</span> Curtir
+    <!-- Templates from original document -->
+    <template id="post-template">
+        <div class="post" data-post-id="">
+            <div class="post-header">
+                <span class="post-author"></span>
+                <span class="post-time"></span>
             </div>
-            <div class="post-action comment-action">
-                <i class="fas fa-comment"></i> <span class="comment-count">0</span> Comentar
+            <div class="post-content"></div>
+            <div class="post-actions">
+                <div class="post-action like-action">
+                    <i class="fas fa-thumbs-up"></i> <span class="like-count">0</span> Curtir
+                </div>
+                <div class="post-action comment-action">
+                    <i class="fas fa-comment"></i> <span class="comment-count">0</span> Comentar
+                </div>
+                <!-- <div class="post-action share-action">
+                    <i class="fas fa-share"></i> Compartilhar
+                </div> -->
             </div>
-        </div>
-        <div class="comments-container">
-            <div class="comment-form">
-                <textarea class="comment-input" placeholder="Escreva um comentário..."></textarea>
-                <div class="comment-buttons">
+            <div class="comments-container">
+                <div class="comment-form">
+                    <textarea class="comment-input" placeholder="Comentário..."></textarea>
                     <button class="button comment-submit">Comentar</button>
-                    <button class="button comment-cancel">Cancelar</button>
+                    <button class="button comment-cancel">Cancel</button>
+
+                    
                 </div>
             </div>
         </div>
-    </div>
-</template>
+    </template>
 
-<!-- Modificação do template comment-template -->
-<template id="comment-template">
-    <div class="comment" data-comment-id="">
-        <div class="comment-header">
-            <span class="comment-author"></span>
-            <span class="comment-time"></span>
+    <template id="comment-template">
+        <div class="comment" data-comment-id="">
+            <div class="comment-header">
+                <span class="comment-author"></span>
+                <span class="comment-time"></span>
+            </div>
+            <div class="comment-content"></div>
+            <div class="comment-actions">
+                <!-- <div class="comment-action like-comment">
+                    <i class="fas fa-thumbs-up"></i> <span class="comment-like-count">0</span> Curtir
+                </div> -->
+                <!-- <div class="comment-action reply-comment">
+                    <i class="fas fa-reply"></i> Responder
+                </div> -->
+            </div>
+            <div class="comment-replies">
+                <!-- Respostas aos comentários serão carregadas aqui -->
+            </div>
+            <div class="comment-form reply-form hidden">
+                <textarea class="comment-input reply-input" placeholder="Escreva uma resposta..."></textarea>
+                <button class="button comment-submit reply-submit">Responder</button>
+            </div>
         </div>
-        <div class="comment-content"></div>
-        <div class="comment-actions">
-            <!-- Ações de comentário, se necessário -->
-        </div>
-    </div>
-</template>
+    </template>
 
     <script>
       

@@ -932,4 +932,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicia a aplicação quando o DOM estiver pronto
     init();
-});
+});                                                                    

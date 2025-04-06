@@ -99,6 +99,11 @@ header {
     z-index: 2;
 }
 
+.instrucoes{
+    color: #58729c;
+    font-size: small;
+}
+
 .auth-header {
     text-align: center;
     margin-bottom: 2rem;
