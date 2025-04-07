@@ -29,6 +29,18 @@
 </head>
 
 <body>
+    <div class="welcome-alert">
+        <style>
+         
+        </style>
+        
+        <div class="welcome-icon">👋</div>
+        <div class="welcome-content">
+          <h3>Seja bem-vindo à nossa comunidade!</h3>
+          <p>Estamos construindo uma nova plataforma de Debates e precisamos do seu apoio para crescer. Por favor, compartilhe o nosso site  <a href="#" class="site-link">www.anamalalaforum.com</a> com pessoas que possam fazer parte da nossa comunidade.!</p>
+        </div>
+        <button class="close-btn" onclick="this.parentElement.style.display='none'">✕</button>
+      </div>
     <div class="app-container">
         <!-- Overlay para dispositivos móveis quando a sidebar está visível -->
         <div class="sidebar-overlay"></div>
@@ -42,7 +54,7 @@
         <div class="sidebar flexible-scrollable-div">
             <div class="sidebar-header">
                 <h1 class="text-2xl font-bold">ANAMALALA</h1>
-                <span class="text-sm bg-red-600 px-2 py-1 rounded ml-2">MPU</span>
+                <span class="text-sm bg-red-600 px-2 py-1 rounded ml-2">VM7</span>
             </div>
 
             <div class="sidebar-menu flexible-scrollable-div">
@@ -50,8 +62,8 @@
                     <!-- <div class="bg-grey-600 p-2 mr-3">
                         <i class="fas fa-users text-white"></i>
                     </div> -->
-                    <h2 class="text-xl font-bold text-white">3,427 membros</h2>
-                    <p class="text-sm text-white opacity-75">427 online Agora</p>
+                    <!-- <h2 class="text-xl font-bold text-white">3,427 membros</h2>
+                    <p class="text-sm text-white opacity-75">427 online Agora</p> -->
                 </div>
                 <a href="../Portal/portal.html" class="hover:bg-blue-700">Início</a>
                 <a href="#" class="active hover:bg-blue-700">Sala de Debate</a>
@@ -74,9 +86,11 @@
 
         <!-- Chat Container -->
         <div class="chat-container">
+         
             <div class="chat-header">
                 <div class="user-nav">
                     <div class="user-profile">
+
                         <span class="user-name" data-user="name">Usuário</span>
                         <div class="dropdown-content">
                             <a href="../auth/profile.html">Meu Perfil</a>
