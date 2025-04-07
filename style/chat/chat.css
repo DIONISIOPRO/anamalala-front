@@ -135,6 +135,9 @@
     display: none;
 }
 
+.flexible-scrollable-div {
+    overflow-y: auto;
+  }
 .comment-header {
     display: flex;
     align-items: center;
