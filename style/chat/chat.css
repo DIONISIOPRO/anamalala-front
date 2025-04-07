@@ -136,7 +136,7 @@
 }
 
 .flexible-scrollable-div {
-    overflow-y: auto;
+    overflow: auto;
   }
 .comment-header {
     display: flex;
