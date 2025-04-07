@@ -4,161 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidade - Anamalala</title>
+    <link rel="stylesheet" href="../style/legal/privacidade.css">
+
     <style>
-        :root {
-            --primary-color: #0056b3;
-            --secondary-color: #004085;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gray-color: #6c757d;
-            --success-color: #28a745;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: var(--font-main);
-            line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        
-        .nav-links {
-            display: flex;
-        }
-        
-        .nav-links a {
-            color: white;
-            margin-left: 20px;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: #cccccc;
-        }
-        
-        main {
-            padding: 40px 0;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
-            color: var(--secondary-color);
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            margin: 1.5rem 0 0.5rem;
-            color: var(--secondary-color);
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        ul, ol {
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .privacy-header {
-            background-color: #e9f7fe;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        .privacy-section {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .privacy-date {
-            text-align: right;
-            margin-top: 40px;
-            color: var(--gray-color);
-            font-style: italic;
-        }
-        
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
-        
-        .footer-links {
-            margin-top: 15px;
-        }
-        
-        .footer-links a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            header .container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .logo {
-                margin-bottom: 10px;
-            }
-        }
+  
     </style>
 </head>
 <body>
@@ -166,7 +15,7 @@
         <div class="container">
             <div class="logo">ANAMALALA</div>
             <nav class="nav-links">
-                <a href="../landingpage/index.html">Início</a>
+                <a href="../index.html">Início</a>
                 <a href="../legal/sobre-nos.html">Sobre Nós</a>
                 <a href="../auth/login.html">Entrar</a>
                 <a href="../auth/register.html">Criar Conta</a>
@@ -341,7 +190,7 @@
         <div class="container">
             <p>&copy; 2025 Anamalala - Movimento Político Único (MPU). Todos os direitos reservados.</p>
             <div class="footer-links">
-                <a href="../landingpage/index.html">Início</a>
+                <a href="../index.html">Início</a>
                 <a href="../legal/sobre-nos.html">Sobre Nós</a>
                 <a href="../auth/login.html">Entrar</a>
                 <a href="../auth/register.html">Criar Conta</a>
@@ -349,21 +198,8 @@
         </div>
     </footer>
     
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Script simples para destacar seções quando clicadas
-            const sections = document.querySelectorAll('.privacy-section');
-            
-            sections.forEach(section => {
-                section.addEventListener('click', function() {
-                    // Remove a classe 'highlight' de todas as seções
-                    sections.forEach(s => s.style.backgroundColor = '');
-                    
-                    // Adiciona a classe 'highlight' à seção clicada
-                    this.style.backgroundColor = '#f8f9fa';
-                });
-            });
-        });
+    <script src="../scripts/legal/privacidade.js">
+      
     </script>
 </body>
 </html>
